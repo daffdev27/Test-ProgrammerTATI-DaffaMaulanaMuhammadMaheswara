@@ -43,7 +43,6 @@
         <h2 class="text-center fw-bold text-danger"><i class="fas fa-book"></i> Log Harian</h2>
         <p class="text-center text-muted">Anda masuk sebagai <strong>{{ ucfirst(str_replace('_', ' ', session('role'))) }}</strong></p>
 
-        <!-- Form Tambah Log -->
         <div class="card shadow-sm mt-3">
             <div class="card-header">
                 <i class="fas fa-plus-circle"></i> Tambah Log Harian
@@ -113,14 +112,12 @@
                             <td class="text-center">
                                 @if($log->status == 'Pending' && $log->pegawai->id == session('pegawai_id'))
                                     <div class="d-flex flex-column align-items-center w-100">
-                                        <!-- Form Edit -->
                                         <form action="{{ route('logharian.update', $log->id) }}" method="POST" class="w-100">
                                             @csrf
                                             <input type="text" name="deskripsi" value="{{ $log->deskripsi }}" 
                                                 class="form-control form-control-sm text-center mb-2 w-100" 
                                                 style="border-radius: 5px;" required>
                                             
-                                            <!-- Tombol Edit & Hapus dengan perbandingan 50:50 -->
                                             <div class="d-flex gap-2 w-100">
                                                 <button type="submit" class="btn btn-warning btn-sm w-50" style="border-radius: 5px;">
                                                     <i class="fas fa-edit"></i> Edit
